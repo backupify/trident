@@ -97,7 +97,7 @@ module Trident
     end
 
     def daemonize(logfile)
-      Process.daemon
+      Process.daemon(avoid_changing_the_working_dir = true)
       $stdout.reopen(logfile, "a")
       $stderr.reopen(logfile, "a")
     end
